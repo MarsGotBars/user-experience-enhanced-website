@@ -53,12 +53,12 @@ main:has(form.dialog) {
       input[type="checkbox"] {
         appearance: none;
         position: absolute;
-        &:focus {
+        &:focus-visible {
           outline: none;
         }
       }
 
-      input[type="checkbox"]:focus + .fake-checkbox {
+      input[type="checkbox"]:focus-visible + .fake-checkbox {
         outline: 5px dotted var(--theme);
       }
 
@@ -99,6 +99,7 @@ main:has(form.dialog) {
   }
 
   .submission-container {
+    margin-top: auto;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -237,6 +238,7 @@ form.dialog .loading-container svg.loading-icon {
 form.dialog .loading-container,
 form.dialog .loading-container p.loading-text,
 form.dialog .loading-container p.success-text,
+form.dialog .loading-container p.success-concept,
 form.dialog .loading-container p.error-text,
 form.dialog .loading-container svg.loading-icon,
 form.dialog .loading-container svg.checkmark-icon,
@@ -248,9 +250,11 @@ form.dialog .loading-container svg.cross-icon {
 
 form.dialog.loading .loading-container p.loading-text,
 form.dialog.success .loading-container p.success-text,
+form.dialog.success-concept .loading-container p.success-concept,
 form.dialog.error .loading-container p.error-text,
 form.dialog.loading .loading-container svg.loading-icon,
 form.dialog.success .loading-container svg.checkmark-icon,
+form.dialog.success-concept .loading-container svg.checkmark-icon,
 form.dialog.error .loading-container svg.cross-icon {
   opacity: 1;
   pointer-events: auto;
@@ -259,12 +263,14 @@ form.dialog.error .loading-container svg.cross-icon {
 
 form.dialog.loading .loading-container,
 form.dialog.error .loading-container,
-form.dialog.success .loading-container {
+form.dialog.success .loading-container,
+form.dialog.success-concept .loading-container {
   opacity: 1;
 }
 
 form.dialog.loading::after,
 form.dialog.success::after,
+form.dialog.success-concept::after,
 form.dialog.error::after {
   opacity: 1;
   pointer-events: auto;
