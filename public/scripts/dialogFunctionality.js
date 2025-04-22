@@ -1,49 +1,45 @@
+// Dialog moet global zijn zodat deze ook gebruikt kan worden in de submit
+const dialog = document.querySelector("dialog");
 const form = document.querySelector("form.dialog");
-if (form) {
-  const isExercise = form.dataset.exercise === "true";
-  // Dialog moet global zijn zodat deze ook gebruikt kan worden in de submit
-  let dialog;
-  // Als dialog beschikbaar is, maak ik een dialog aan
-  if ("HTMLDialogElement" in window) {
-    // Als er een dialog gemaakt wordt, toon ik de open button hiervoor met de if
-    const dropContainer = document.querySelector(".drop-container");
+const isExercise = form.dataset.exercise === "true";
 
-    if (dropContainer) {
-      dropContainer.style.display = "block";
+// Als er een dialog gemaakt wordt, toon ik de open button hiervoor met de if
+const dropContainer = document.querySelector(".drop-container");
+
+if (dropContainer) {
+  dropContainer.style.display = "block";
+}
+
+// Als het element bestaat
+if (dialog) {
+  // Dedicated buttons voor dialog openen en sluiten
+  const dialogOpen = document.querySelector(".opener");
+  const dialogClose = document.querySelector(".close");
+  dialogOpen.addEventListener("click", (e) => {
+    dialog.showModal();
+    e.preventDefault();
+  });
+
+  dialogClose.addEventListener("click", (e) => {
+    dialog.close();
+    e.preventDefault();
+  });
+}
+
+// Als het geen exercise is en fetch en DOMParser beschikbaar zijn, gebruik ik fetch om de data te versturen.
+if (!isExercise && "fetch" in window && "DOMParser" in window) {
+  document.addEventListener("submit", async (e) => {
+    form.classList.add("loading");
+    const submitForm = e.target;
+    const formData = new FormData(submitForm);
+
+    if (e.submitter.value) {
+      formData.append(e.submitter.name, e.submitter.value);
     }
 
-    const createdDialog = document.createElement("dialog");
-    document.body.append(createdDialog);
-    dialog = document.querySelector("dialog");
-    dialog.appendChild(form);
-
-    // Dedicated buttons voor dialog openen en sluiten
-    const dialogOpen = document.querySelector(".opener");
-    const dialogClose = document.querySelector(".close");
-    dialogOpen.addEventListener("click", (e) => {
-      dialog.showModal();
-      e.preventDefault();
-    });
-
-    dialogClose.addEventListener("click", (e) => {
-      dialog.close();
-      e.preventDefault();
-    });
-  }
-  // Als het geen exercise is en fetch en DOMParser beschikbaar zijn, gebruik ik fetch om de data te versturen.
-  if (!isExercise && "fetch" in window && "DOMParser" in window) {
-    document.addEventListener("submit", async (e) => {
-      form.classList.add("loading");
-      const submitForm = e.target;
-      const formData = new FormData(submitForm);
-
-      if (e.submitter.value) {
-        formData.append(e.submitter.name, e.submitter.value);
-      }
-
-      const formDataObject = new URLSearchParams(formData);
-      e.preventDefault();
-      try {
+    const formDataObject = new URLSearchParams(formData);
+    e.preventDefault();
+    try {
       const response = await fetch(form.action, {
         method: form.method,
         body: formDataObject,
@@ -60,6 +56,9 @@ if (form) {
         const main = document.querySelector("main");
         // Als er een nieuwe card is, voeg deze toe aan de main
         if (newCard) {
+          console.log(newCard);
+          
+          newCard.classList.add("recent")
           // Als er geen dialog is en de form is in de main, voeg de nieuwe card toe aan de main
           if (!dialog && main.contains(form)) {
             form.insertAdjacentElement("afterend", newCard);
@@ -72,7 +71,7 @@ if (form) {
             form.classList.add("success");
             setTimeout(() => {
               form.classList.remove("success");
-              form.outerHTML = newForm.outerHTML;
+              form.innerHTML = newForm.innerHTML;
               if (dialog) {
                 dialog.close();
               }
@@ -92,22 +91,21 @@ if (form) {
         }, 300);
 
         return;
-        }
-      } catch (error) {
-        // console.log(error);
-        setTimeout(() => {
-          form.classList.remove("loading");
-          form.classList.add("error");
-          setTimeout(() => {
-            form.classList.remove("error");
-            if (dialog) {
-              dialog.close();
-            }
-          }, 1500);
-        }, 300);
       }
-    });
-  }
+    } catch (error) {
+      // console.log(error);
+      setTimeout(() => {
+        form.classList.remove("loading");
+        form.classList.add("error");
+        setTimeout(() => {
+          form.classList.remove("error");
+          if (dialog) {
+            dialog.close();
+          }
+        }, 1500);
+      }, 300);
+    }
+  });
 } else {
   console.log("Fetch or DOMParser is not supported");
 }

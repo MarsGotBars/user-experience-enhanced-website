@@ -1,86 +1,87 @@
-<form
-  action="{{link}}"
-  method="post"
-  class="dialog"
-  data-exercise="{% if isExercise %}true{% else %}false{% endif %}">
-  <input
-  type="hidden"
-  name="person"
-  value="Marcin">
-  {% if conceptId %}
-  <input
-  type="hidden"
-  name="conceptId"
-  value="{{ conceptId }}" hidden>
-  {% endif %}
-  <input
-  type="hidden"
-  name="exerciseId"
-  value="{{ exerciseId }}" hidden>
-  <header>
-    {% if open == true or isExercise == true %}
-      <p class="dialog-title">Toegevoegd aan {% render './partials/icons/drops.liquid' %} drops
-      </p>
-    {% endif %}
-
-    {% render './partials/btn/regular-btn.liquid'
-      , text: "X"
-      , strip: true
-      , classes: "close"
-      , link: closeLink
-      , formmethod: "dialog" %}
-  </header>
-
-  <h2 class="extra-bold sm font-calvino">Je hebt zojuist een mooie stap volbracht.</h2>
-  <label>
-    Wil je anderen steunen door je gevoelens 
-    over deze oefening te delen? 
-    
-    <textarea
-      name="message"
-      required>{{conceptText}}</textarea>
-    {% if conceptText %}
-      <p class="concept-text">Je voorheen ingevulde concept bericht is automatisch ingevuld.</p>
-    {% endif %}
-  </label>
-  {% if error %}
-    <p class="error">{{ error }}</p>
-  {% endif %}
-  <label>
+<dialog>
+  <form
+    action="{{link}}"
+    method="post"
+    class="dialog"
+    data-exercise="{% if isExercise %}true{% else %}false{% endif %}">
     <input
-      type="checkbox"
-      value="true"
-      name="anonymous"
-      class="anon">
-    <div class="fake-checkbox">{% render './partials/icons/checkmark.liquid' %}</div>
-    Bericht anoniem plaatsen</label>
-  <div class="submission-container">
-    <button
-      class="regular-btn ghost"
-      name="concept"
-      value="true">
-      <img
-        src="/assets/icons/save.svg"
-        alt="save icon"
-        class="saveIcon">
-      Misschien later
-    </button>
-    <button
-      class="regular-btn"
-      name="concept"
-      value="false">{{ text }}
-    </button>
-  </div>
-  <div class="loading-container">
-    <div class="icon-container">
-      {% render './partials/icons/loading.liquid' %}
-      {% render './partials/icons/checkmark.liquid' %}
-      {% render './partials/icons/cross.liquid' %}
+      type="hidden"
+      name="person"
+      value="Marcin">
+    {% if conceptId %}
+      <input
+        type="hidden"
+        name="conceptId"
+        value="{{ conceptId }}"
+        hidden>
+    {% endif %}
+    <input
+      type="hidden"
+      name="exerciseId"
+      value="{{ exerciseId }}"
+      hidden>
+    <header>
+      {% if open == true or isExercise == true %}
+        <p class="dialog-title">Toegevoegd aan {% render './partials/icons/drops.liquid' %} drops
+        </p>
+      {% endif %}
+
+      {% render './partials/btn/regular-btn.liquid'
+        , text: "X"
+        , strip: true
+        , classes: "close"
+        , link: closeLink
+        , formmethod: "dialog" %}
+    </header>
+
+    <h2 class="extra-bold sm font-calvino">Je hebt zojuist een mooie stap volbracht.</h2>
+    <label>
+      Wil je anderen steunen door je gevoelens   
+    over deze oefening te delen?
+
+      <textarea name="message" required>{{ conceptText }}</textarea>
+      {% if conceptText %}
+        <p class="concept-text">Je voorheen ingevulde concept bericht is automatisch ingevuld.</p>
+      {% endif %}
+    </label>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <label>
+      <input
+        type="checkbox"
+        value="true"
+        name="anonymous"
+        class="anon">
+      <div class="fake-checkbox">{% render './partials/icons/checkmark.liquid' %}</div>
+      Bericht anoniem plaatsen</label>
+    <div class="submission-container">
+      <button
+        class="regular-btn ghost"
+        name="concept"
+        value="true">
+        <img
+          src="/assets/icons/save.svg"
+          alt="save icon"
+          class="saveIcon">
+        Misschien later
+      </button>
+      <button
+        class="regular-btn"
+        name="concept"
+        value="false">{{ text }}</button>
     </div>
-    <p class="loading-text">Bezig met het versturen van bericht...</p>
-    
-    <p class="success-text">Bericht succesvol verstuurd!</p>
-    
-    <p class="error-text">Er is een fout opgetreden bij het versturen van het bericht.</p>
-  </div>
-</form>
+    <div class="loading-container">
+      <div class="icon-container">
+        {% render './partials/icons/loading.liquid' %}
+        {% render './partials/icons/checkmark.liquid' %}
+        {% render './partials/icons/cross.liquid' %}
+      </div>
+      <p class="loading-text">Bezig met het versturen van bericht...</p>
+
+      <p class="success-text">Bericht succesvol verstuurd!</p>
+
+      <p class="error-text">Er is een fout opgetreden bij het versturen van het bericht.</p>
+    </div>
+  </form>
+</dialog>
