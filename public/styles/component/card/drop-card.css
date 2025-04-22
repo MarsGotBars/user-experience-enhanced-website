@@ -1,3 +1,18 @@
 .drop-card{
     margin-bottom: .5rem;
 }
+
+.recent{
+    opacity: 0;
+    animation: fade-in .9s .3s ease-out forwards;
+}
+
+@keyframes fade-in {
+    0%{
+        translate: 0 -100%;
+    }
+    100%{
+        translate: 0 0;
+        opacity: 1;
+    }
+}
