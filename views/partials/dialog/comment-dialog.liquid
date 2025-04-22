@@ -15,11 +15,6 @@
         value="{{ conceptId }}"
         hidden>
     {% endif %}
-    <input
-      type="hidden"
-      name="exerciseId"
-      value="{{ exerciseId }}"
-      hidden>
     <header>
       {% if open == true or isExercise == true %}
         <p class="dialog-title">Toegevoegd aan {% render './partials/icons/drops.liquid' %} drops
@@ -36,7 +31,7 @@
 
     <h2 class="extra-bold sm font-calvino">Je hebt zojuist een mooie stap volbracht.</h2>
     <label>
-      Wil je anderen steunen door je gevoelens   
+      Wil je anderen steunen door je gevoelens         
     over deze oefening te delen?
 
       <textarea name="message" required>{{ conceptText }}</textarea>
@@ -78,9 +73,8 @@
         {% render './partials/icons/cross.liquid' %}
       </div>
       <p class="loading-text">Bezig met het versturen van bericht...</p>
-
       <p class="success-text">Bericht succesvol verstuurd!</p>
-
+      <p class="success-concept">Concept succesvol opgeslagen</p>
       <p class="error-text">Er is een fout opgetreden bij het versturen van het bericht.</p>
     </div>
   </form>
