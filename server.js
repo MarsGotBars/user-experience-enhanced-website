@@ -231,7 +231,9 @@ app.get("/:theme/:pageId/drops/comment", async function (request, response) {
     foundTheme: theme,
     pageId,
     open,
-    conceptText
+    conceptText,
+    styles: ["card/drop-card.css", "dialog/dialog.css" ],
+    scripts: ["dialogFunctionality.js"]
   });
 });
 
