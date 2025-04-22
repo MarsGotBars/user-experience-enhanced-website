@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} base styles {% endcomment %}
     <link rel="stylesheet" href="/styles/theme.css">
     <link rel="stylesheet" href="/styles/general.css">
     <link rel="stylesheet" href="/styles/component/btn/btn.css">
-    <link rel="stylesheet" href="/styles/component/card/cards.css">
-    <link rel="stylesheet" href="/styles/component/card/drop-card.css">
-    <link rel="stylesheet" href="/styles/component/header/header.css">
-    <link rel="stylesheet" href="/styles/component/decor/decor.css">
-    <link rel="stylesheet" href="/styles/component/dialog/dialog.css">
-    <script src="/scripts/dialogFunctionality.js" defer></script>
+    {% comment %} script loop {% endcomment %}
+    {% for style in styles %}
+       <link rel="stylesheet" href="/styles/component/{{style}}">
+    {% endfor %}
+    {% for script in scripts %}
+        <script src="/scripts/{{script}}" defer></script>
+    {% endfor %}
     {% if open %}
         <script src="/scripts/dialogOpen.js" defer></script>
     {% endif %}

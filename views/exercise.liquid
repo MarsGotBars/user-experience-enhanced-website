@@ -6,12 +6,15 @@
 {% render './partials/head.liquid'
   , themeColor: foundTheme
   , id: id
-  , open: open %}
+  , open: open
+  , scripts: scripts
+  , styles: styles %}
 <main>
   <img
-    src="https://fdnd-agency.directus.app/assets/{{ image }}"
+    src="https://fdnd-agency.directus.app/assets/{{ image.id }}"
     alt=""
-    loading="eager"
+    width="{{image.width}}"
+    height="{{image.height}}"
     class="exercise-image">
   <h1 class="xxl">{{ title }}</h1>
   {{ description }}

@@ -5,28 +5,30 @@
 
 {% render './partials/head.liquid'
   , open: open
-  , themeColor: foundTheme %}
-  <main>
-{% render './partials/dialog/comment-dialog.liquid'
-  , link: dropsLink
-  , closeLink: dropsLink 
-  , error: error
-  , text: "Plaats bericht"
-  , conceptText: conceptText
-  , conceptId: conceptId
-  , exerciseId: exerciseId %}
-{% for drop in drops reversed %}
-  {% render "./partials/card/drop-card.liquid"
-    , drop: drop %}
-{% else %}
-  <p>Er zijn nog geen berichten gepost.</p>
-{% endfor %}
-<div class="drop-container">
-{% render './partials/btn/regular-btn.liquid'
-  , text: "Klaar"
-  , classes: "opener drop-btn"
-  , link: commentLink
-  %}
+  , themeColor: foundTheme
+  , scripts: scripts
+  , styles: styles %}
+<main>
+  {% render './partials/dialog/comment-dialog.liquid'
+    , link: dropsLink
+    , closeLink: dropsLink 
+    , error: error
+    , text: "Plaats bericht"
+    , conceptText: conceptText
+    , conceptId: conceptId
+    , exerciseId: exerciseId %}
+  {% for drop in drops reversed %}
+    {% render "./partials/card/drop-card.liquid"
+      , drop: drop %}
+  {% else %}
+    <p>Er zijn nog geen berichten gepost.</p>
+  {% endfor %}
+  <div class="drop-container">
+    {% render './partials/btn/regular-btn.liquid'
+      , text: "Klaar"
+      , classes: "opener drop-btn"
+      , link: commentLink
+    %}
   </div>
 </main>
 {% render './partials/footer.liquid' %}
