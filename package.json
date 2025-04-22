@@ -1,27 +1,35 @@
 {
   "name": "user-experience-enhanced-website",
   "version": "1.0.0",
-  "description": "Ontwerp en maak een website voor een opdrachtgever waarbij je de website verrijkt volgens het principe van progressive enhancement.",
+  "description": "Ontwerp en ontwikkel een server-side website voor een opdrachtgever.",
   "main": "server.js",
   "type": "module",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon\" \"browser-sync start --proxy http://localhost:8000 --files \"views/**/*.liquid, public/**/*.css, public/**/*.js\" --port 3000 --no-open --no-notify\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fdnd-task/user-experience-enhanced-website.git"
-  },
+  "keywords": [
+    "node",
+    "express",
+    "liquid"
+  ],
   "author": "J.P. Sturkenboom <j.p.sturkenboom@hva.nl>",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/fdnd-task/user-experience-enhanced-website/issues"
   },
   "homepage": "https://github.com/fdnd-task/user-experience-enhanced-website#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^5.0.1",
     "liquidjs": "^10.21.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9"
   }
 }

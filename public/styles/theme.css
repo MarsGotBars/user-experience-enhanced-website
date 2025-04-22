@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Calvino;
+    src: url('/assets/fonts/Calvino-Grande-Variable-trial.ttf');
+}
+
+@font-face {
+    font-family: Figtree;
+    src: url('/assets/fonts/Figtree-VariableFont_wght.ttf');
+}
+
+body{
+    /* default colors */
+    --white: #f5f5f5;
+    --rgba-white: 245, 245, 245;
+    --black: #111111;
+    --rgba-black: 17, 17, 17;
+    --off-black: #1d1d1d;
+    --rgba-off-black: 29, 29, 29;
+    --gray: #A6A6A6;
+    --rgba-gray: 166, 166, 166;
+    --error: #FF7979;
+
+    /* colors */
+    --blue: #64AAC7;
+    --red: #984A4A;
+    --green: #6E9158;
+    --purple: #7C6097;
+    --default-bg: var(--off-black);
+    --theme: var(--blue);
+
+    /* fonts */
+    --calvino: Calvino, serif, Helvetica;
+    --figtree: Figtree, Tahoma, system-ui;
+
+    /* font sizes */
+    --size-xxl: 3.75rem;
+    --size-xl: 3rem;
+    --size-lg: 2.625rem;
+    --size-md: 2.5rem;
+    --size-sm: 2rem;
+    --size-xs: 1.5rem;
+    --size-xxs: 1.25rem;
+    --size-default: 1rem;
+}
+
+body[data-theme= "red"]{
+    --theme: var(--red)
+}
+
+body[data-theme= "green"]{
+    --theme: var(--green)
+}
+
+body[data-theme= "purple"]{
+    --theme: var(--purple)
+}
+
+.theme-1{
+    --theme: var(--blue);   
+}
+
+.theme-2{
+    --theme: var(--red);
+}
+
+.theme-3{
+    --theme: var(--green);
+}
+
+.theme-4{
+    --theme: var(--purple);
+}
+
+*:focus-visible{
+    outline: 5px dotted var(--theme);
+}
+

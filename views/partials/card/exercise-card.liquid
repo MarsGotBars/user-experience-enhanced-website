@@ -1,0 +1,17 @@
+<article class="card">
+  <div class="card-content">
+    <div class="card-image">
+        {% comment %} dynamisch plaatje {% endcomment %}
+      <img
+        src="https://fdnd-agency.directus.app/assets/{{exercise.image.id}}"
+        width="{{exercise.image.width}}"
+        height="{{exercise.image.height}}"
+        alt="card image">
+    </div>
+    <p class="card-category default">{{ category | default: "Oefening" }}</p>
+    <h3 class="card-title xs font-calvino">{{ exercise.title }}</h3>
+    <p>hier moet nog een description komen</p>
+  </div>
+  {% render "./partials/btn/regular-btn.liquid"
+    , link: link %}
+</article>

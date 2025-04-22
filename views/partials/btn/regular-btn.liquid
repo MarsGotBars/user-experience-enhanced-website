@@ -1,0 +1,38 @@
+{% if link != null %}
+  <a
+    href="{{ link }}"
+    {% if strip %}
+    class="{{ classes }}"
+    {% else %}
+    class="regular-btn {{ classes }}"
+    {% endif %}>
+    {% if classes contains "ghost" and saveIcon == true %}
+      <img
+        src="/assets/icons/save.svg"
+        alt="save icon"
+        class="saveIcon">
+    {% endif %}
+    {{ text | default: 'Start oefening' }}
+  </a>
+{% else %}
+  <button
+    {% if strip %}
+    class="{{ classes }}"
+    {% else %}
+    class="regular-btn {{ classes }}"
+    {% endif %}
+    {% if type %}
+    type="{{type}}"
+    {% endif %}
+    {% if formmethod %}
+    formmethod="{{formmethod}}"
+    {% endif %}>
+    {% if classes contains "ghost" and saveIcon == true %}
+      <img
+        src="/assets/icons/save.svg"
+        alt="save icon"
+        class="saveIcon">
+    {% endif %}
+    {{ text | default: 'Start oefening' }}
+  </button>
+{% endif %}

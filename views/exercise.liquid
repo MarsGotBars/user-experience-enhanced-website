@@ -1,0 +1,38 @@
+{% assign taskLink = "/" | append: foundTheme %}
+{% assign partialLink = taskLink | append: "/" | append: pageId %}
+{% assign dropsLink = partialLink | append: "/drops" %}
+{% assign commentLink = partialLink | append: "/comment" %}
+
+{% render './partials/head.liquid'
+  , themeColor: foundTheme
+  , id: id
+  , open: open %}
+<main>
+  <img
+    src="https://fdnd-agency.directus.app/assets/{{ image }}"
+    alt=""
+    loading="eager"
+    class="exercise-image">
+  <h1 class="xxl">{{ title }}</h1>
+  {{ description }}
+
+  {% render './partials/btn/regular-btn.liquid'
+    , text: "Klaar"
+    , link: commentLink
+    , classes: "opener"
+  %}
+
+  {% render './partials/dialog/comment-dialog.liquid'
+    , link: dropsLink
+    , closeLink: partialLink 
+    , error: error
+    , open: open
+    , text: "Deel bericht"
+    , conceptText: conceptText
+    , conceptId: conceptId
+    , isExercise: isExercise
+    , exerciseId: exerciseId
+  %}
+
+</main>
+{% render './partials/footer.liquid' %}
