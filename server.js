@@ -136,6 +136,7 @@ app.get("/:theme", async function (request, response) {
     id,
     tasks,
     exercises,
+    styles: ["decor/decor.css", "header/header.css", "card/exercise-card.css"]
   });
 });
 
@@ -157,7 +158,9 @@ app.get("/:theme/:pageId", async function (request, response) {
     pageId,
     image,
     conceptText,
-    isExercise
+    isExercise,
+    scripts: ["dialogFunctionality.js"],
+    styles: ["decor/decor.css", "dialog/dialog.css"]
   });
 });
 
@@ -181,7 +184,9 @@ app.get("/:theme/:pageId/comment", async function (request, response) {
     pageId,
     open,
     conceptText,
-    isExercise
+    isExercise,
+    scripts: ["dialogFunctionality.js"],
+    styles: ["decor/decor.css", "dialog/dialog.css"]
   };
 
   // Als res.locals.error bestaat, gebruik die (komt van middleware)
@@ -205,7 +210,9 @@ app.get("/:theme/:pageId/drops", async function (request, response) {
     drops,
     foundTheme: theme,
     pageId,
-    conceptText
+    conceptText,
+    styles: ["card/drop-card.css", "dialog/dialog.css" ],
+    scripts: ["dialogFunctionality.js"]
   });
 });
 
