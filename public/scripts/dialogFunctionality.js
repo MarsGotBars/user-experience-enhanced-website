@@ -34,7 +34,7 @@ if (!isExercise && "fetch" in window && "DOMParser" in window) {
     const formData = new FormData(submitForm);
 
     if (e.submitter.value) {
-      formData.append(e.submitter.name, e.submitter.value);
+      formData.append(e.submitter.name, e.submitter.value);      
     }
 
     const formDataObject = new URLSearchParams(formData);
@@ -55,9 +55,9 @@ if (!isExercise && "fetch" in window && "DOMParser" in window) {
         const newCard = responseDOM.querySelector("article");
         const main = document.querySelector("main");
         // Als er een nieuwe card is, voeg deze toe aan de main
-        if (newCard) {
-          console.log(newCard);
-          
+        
+        
+        if (newCard && e.submitter.value == "false") {
           newCard.classList.add("recent")
           // Als er geen dialog is en de form is in de main, voeg de nieuwe card toe aan de main
           if (!dialog && main.contains(form)) {
@@ -67,10 +67,15 @@ if (!isExercise && "fetch" in window && "DOMParser" in window) {
           }
           const newForm = responseDOM.querySelector("form.dialog");
           setTimeout(() => {
-            form.classList.remove("loading");
-            form.classList.add("success");
+          form.classList.remove("loading");
+            if(e.submitter.value){
+              form.classList.add("success-concept");              
+            } else {
+              form.classList.add("success");
+            }
             setTimeout(() => {
               form.classList.remove("success");
+              form.classList.remove("success-concept");
               form.innerHTML = newForm.innerHTML;
               if (dialog) {
                 dialog.close();
@@ -79,11 +84,13 @@ if (!isExercise && "fetch" in window && "DOMParser" in window) {
           }, 300);
         }
       } else {
-        console.log("hoi");
-
         setTimeout(() => {
-          form.classList.remove("loading");
-          form.classList.add("success");
+          form.classList.remove("loading");          
+          if(e.submitter.value){
+            form.classList.add("success-concept");
+          } else {
+            form.classList.add("success");
+          }
           setTimeout(() => {
             // Als er geredirect wordt, volg de redirect
             window.location.href = response.url;
