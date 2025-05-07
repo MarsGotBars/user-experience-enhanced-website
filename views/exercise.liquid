@@ -35,7 +35,7 @@
       class="exercise-image">
   </picture>
 
-  <h1 class="xxl">{{ title }}</h1>
+  <h1 class="xxl">{{ title | split: ":" | first }}</h1>
   {{ description }}
 
   {% render './partials/btn/regular-btn.liquid'
