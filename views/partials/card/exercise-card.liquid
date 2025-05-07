@@ -8,7 +8,7 @@
         height="{{exercise.image.height}}"
         alt="card image">
     </div>
-    <p class="card-category default">{{ category | default: "Oefening" }}</p>
+    <p class="card-category default">{{ exercise.type | default: "Oefening" }}</p>
     <h3 class="card-title xs font-calvino">{{ exercise.title }}</h3>
     <p>hier moet nog een description komen</p>
   </div>
