@@ -1,0 +1,11 @@
+span.key{
+    font-weight: 700;
+}
+
+header{
+    background: var(--off-black);
+}
+
+header + main{
+    /* margin-top: ; */
+}

@@ -1,0 +1,8 @@
+body{
+    --default-bg: var(--black);
+    padding: unset;
+}
+
+main{
+    padding: 0 2.125rem;
+}

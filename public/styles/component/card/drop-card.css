@@ -1,5 +1,8 @@
 .drop-card{
     margin-bottom: .5rem;
+    background: var(--off-black);
+    border-radius: 1.875rem;
+    padding: 1.25rem 1.5rem;
 }
 
 .recent{
