@@ -8,6 +8,7 @@
   , themeColor: foundTheme
   , scripts: scripts
   , styles: styles %}
+{% render './partials/header/title-header.liquid' %}
 <main>
   {% render './partials/dialog/comment-dialog.liquid'
     , link: dropsLink
@@ -17,9 +18,11 @@
     , conceptText: conceptText
     , conceptId: conceptId
     , exerciseId: exerciseId %}
+  <h2 data-label="newest">Nieuwste berichten</h2>
   {% for drop in drops reversed %}
     {% render "./partials/card/drop-card.liquid"
-      , drop: drop %}
+      , drop: drop
+    %}
   {% else %}
     <p>Er zijn nog geen berichten gepost.</p>
   {% endfor %}

@@ -2,6 +2,9 @@
 const dialog = document.querySelector("dialog");
 const form = document.querySelector("form.dialog");
 const isExercise = form.dataset.exercise === "true";
+const title = document.querySelector('[data-label=newest]');
+console.log(title);
+
 
 // Als er een dialog gemaakt wordt, toon ik de open button hiervoor met de if
 const dropContainer = document.querySelector(".drop-container");
@@ -63,7 +66,7 @@ if (!isExercise && "fetch" in window && "DOMParser" in window) {
           if (!dialog && main.contains(form)) {
             form.insertAdjacentElement("afterend", newCard);
           } else {
-            main.insertAdjacentElement("afterbegin", newCard);
+            title.insertAdjacentElement("afterend", newCard);
           }
           const newForm = responseDOM.querySelector("form.dialog");
           setTimeout(() => {
