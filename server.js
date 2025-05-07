@@ -136,7 +136,7 @@ app.get("/:theme", async function (request, response) {
     id,
     tasks,
     exercises,
-    styles: ["decor/decor.css", "header/header.css", "card/exercise-card.css"]
+    styles: ["component/decor/decor.css", "component/header/header.css", "component/card/exercise-card.css"]
   });
 });
 
@@ -160,7 +160,7 @@ app.get("/:theme/:pageId", async function (request, response) {
     conceptText,
     isExercise,
     scripts: ["dialogFunctionality.js"],
-    styles: ["decor/decor.css", "dialog/dialog.css"]
+    styles: ["component/decor/decor.css", "component/dialog/dialog.css"]
   });
 });
 
@@ -186,7 +186,7 @@ app.get("/:theme/:pageId/comment", async function (request, response) {
     conceptText,
     isExercise,
     scripts: ["dialogFunctionality.js"],
-    styles: ["decor/decor.css", "dialog/dialog.css"]
+    styles: ["component/decor/decor.css", "component/dialog/dialog.css"]
   };
 
   // Als res.locals.error bestaat, gebruik die (komt van middleware)
@@ -211,7 +211,7 @@ app.get("/:theme/:pageId/drops", async function (request, response) {
     foundTheme: theme,
     pageId,
     conceptText,
-    styles: ["card/drop-card.css", "dialog/dialog.css" ],
+    styles: ["component/card/drop-card.css", "component/dialog/dialog.css", "component/header/title-header.css", "drops.css" ],
     scripts: ["dialogFunctionality.js"]
   });
 });
@@ -232,7 +232,7 @@ app.get("/:theme/:pageId/drops/comment", async function (request, response) {
     pageId,
     open,
     conceptText,
-    styles: ["card/drop-card.css", "dialog/dialog.css" ],
+    styles: ["component/card/drop-card.css", "component/dialog/dialog.css", "component/header/title-header.css", "drops.css" ],
     scripts: ["dialogFunctionality.js"]
   });
 });
