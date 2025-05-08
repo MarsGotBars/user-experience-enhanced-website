@@ -31,6 +31,7 @@ _elke oefening heeft een __eigen__ comment pagina_
 ![image](https://private-user-images.githubusercontent.com/79918750/425146580-e7191453-687e-4d9a-94ef-578e76b0c094.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDM2ODg2ODMsIm5iZiI6MTc0MzY4ODM4MywicGF0aCI6Ii83OTkxODc1MC80MjUxNDY1ODAtZTcxOTE0NTMtNjg3ZS00ZDlhLTk0ZWYtNTc4ZTc2YjBjMDk0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDAzVDEzNTMwM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThkNjlkOWUwOGUyNzNmNTc5NTAxYzM1NDYxNmI1YjY5ZTMyZjJiNGU1Y2U5MDk4OTg3NGZjYzA5ZDA2ODUyNGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.EdtGQg_vt9Y-psi_7YX4olB23gDS6vMxIDUUSoYhaAw)
 
 </details>
+
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 Voor dit project is er gebruik gemaakt van de volgende technieken:
