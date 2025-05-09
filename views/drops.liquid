@@ -4,7 +4,6 @@
 {% assign commentLink = dropsLink | append: "/comment" %}
 
 {% render './partials/head.liquid'
-  , open: open
   , themeColor: foundTheme
   , scripts: scripts
   , styles: styles %}
@@ -13,12 +12,13 @@
   {% render './partials/dialog/comment-dialog.liquid'
     , link: dropsLink
     , closeLink: dropsLink 
+    , open: open
     , error: error
     , text: "Plaats bericht"
     , conceptText: conceptText
     , conceptId: conceptId
     , exerciseId: exerciseId %}
-  <h2 data-label="newest">Nieuwste berichten</h2>
+  <h2 data-label="newest" class="md font-calvino">Nieuwste berichten</h2>
   {% for drop in drops reversed %}
     {% render "./partials/card/drop-card.liquid"
       , drop: drop

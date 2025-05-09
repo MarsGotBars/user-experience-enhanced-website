@@ -6,3 +6,9 @@ body{
 main{
     padding: 0 2.125rem;
 }
+
+h2[data-label=newest]{
+    text-align: center;
+    font-size: clamp(var(--size-xs), 4vw, var(--size-lg));
+    margin-bottom: 2.5rem;
+}

@@ -1,12 +1,30 @@
 <article class="card">
   <div class="card-content">
     <div class="card-image">
-        {% comment %} dynamisch plaatje {% endcomment %}
-      <img
-        src="https://fdnd-agency.directus.app/assets/{{exercise.image.id}}"
-        width="{{exercise.image.width}}"
-        height="{{exercise.image.height}}"
-        alt="card image">
+      {% assign half_width = exercise.image.width | divided_by: 2 | floor %}
+      {% assign half_height = exercise.image.height | divided_by: 2 | floor %}
+      <picture>
+        <source
+          media="(orientation: landscape)"
+          type="image/avif"
+          srcset="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.avif?quality=75">
+        <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.avif?fit=cover&quality=75&width={{half_width}}&height={{half_height}}">
+        <source
+          media="(orientation: landscape)"
+          type="image/webp"
+          srcset="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.webp?quality=75">
+        <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.webp?fit=cover&quality=75&width={{half_width}}&height={{half_height}}">
+        <source
+          media="(orientation: landscape)"
+          type="image/jpg"
+          srcset="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.jpg?fit=cover&quality=75">
+        <img
+          src="https://fdnd-agency.directus.app/assets/{{ exercise.image.id }}.jpg?fit=cover&quality=75&width={{half_width}}&height={{half_height}}"
+          alt=""
+          width="{{exercise.image.width}}"
+          height="{{exercise.image.height}}"
+          class="exercise-image">
+      </picture>
     </div>
     <p class="card-category default">{{ exercise.type | default: "Oefening" }}</p>
     <h3 class="card-title xs font-calvino">{{ exercise.title | split: ":" | first }}</h3>

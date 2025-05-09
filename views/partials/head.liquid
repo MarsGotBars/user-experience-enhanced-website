@@ -14,9 +14,6 @@
     {% for script in scripts %}
         <script src="/scripts/{{script}}" defer></script>
     {% endfor %}
-    {% if open %}
-        <script src="/scripts/dialogOpen.js" defer></script>
-    {% endif %}
     <title>{{title | default: "Drop & heal"}}</title>
 </head>
 <body data-theme="{{themeColor | default: blue}}">

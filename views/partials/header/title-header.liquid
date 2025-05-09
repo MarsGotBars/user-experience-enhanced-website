@@ -1,4 +1,7 @@
 <header>
-  <h1>{{ title | default: "Community drops" }}</h1>
+  <div>
+    <a href="#">{% render 'partials/icons/arrow-left.liquid' %}</a>
+    <h1 class="xxl">{{ title | default: "Community drops" }}</h1>
+  </div>
   <p>{{ description | default: "Deel wat je van de oefening vond, lees ervaringen van anderen en steun elkaar in de reis door rouw. <span class='key'>Je bent niet alleen.</span>" }}</p>
 </header>

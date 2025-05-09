@@ -24,7 +24,7 @@ body{
     --blue: #64AAC7;
     --red: #984A4A;
     --green: #6E9158;
-    --purple: #7C6097;
+    --pink: #7C6097;
     --default-bg: var(--off-black);
     --theme: var(--blue);
 
@@ -51,8 +51,8 @@ body[data-theme= "green"]{
     --theme: var(--green)
 }
 
-body[data-theme= "purple"]{
-    --theme: var(--purple)
+body[data-theme= "pink"]{
+    --theme: var(--pink)
 }
 
 .theme-1{
@@ -68,7 +68,7 @@ body[data-theme= "purple"]{
 }
 
 .theme-4{
-    --theme: var(--purple);
+    --theme: var(--pink);
 }
 
 *:focus-visible{

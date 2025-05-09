@@ -4,8 +4,24 @@ span.key{
 
 header{
     background: var(--off-black);
+    padding:  1.75rem 1.25rem;
+}
+
+header p{
+    padding: 0 clamp(1.875rem, 5vw, 2.5rem);
+}
+
+header div{
+    display: flex;
+    gap: clamp(.5rem, 2.5vw, 1rem);
+    align-items: center;
+}
+
+header div svg{
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 header + main{
-    /* margin-top: ; */
+    margin-top: 3rem;
 }

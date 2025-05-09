@@ -1,4 +1,7 @@
-<dialog>
+<dialog
+  {% if open %}
+  open
+  {% endif %}>
   <form
     action="{{link}}"
     method="post"
@@ -31,7 +34,7 @@
 
     <h2 class="extra-bold sm font-calvino">Je hebt zojuist een mooie stap volbracht.</h2>
     <label>
-      Wil je anderen steunen door je gevoelens         
+      Wil je anderen steunen door je gevoelens             
     over deze oefening te delen?
 
       <textarea name="message" required>{{ conceptText }}</textarea>
