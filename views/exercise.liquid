@@ -8,26 +8,16 @@
   , id: id
   , scripts: scripts
   , styles: styles %}
-<main>
-  {% assign half_width = image.width | divided_by: 2 | floor %}
-  {% assign half_height = image.height | divided_by: 1.4 | floor %}
+  <main>
+  {% comment %} Picture element om meerdere sources aan te geven {% endcomment %}
   <picture>
-    <source
-      media="(orientation: landscape)"
-      type="image/avif"
-      srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.avif?quality=75">
-    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.avif?fit=cover&quality=75&width={{half_width}}&height={{half_height}}">
-    <source
-      media="(orientation: landscape)"
-      type="image/webp"
-      srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.webp?quality=75">
-    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.webp?fit=cover&quality=75&width={{half_width}}&height={{half_height}}">
-    <source
-      media="(orientation: landscape)"
-      type="image/jpg"
-      srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.jpg?fit=cover&quality=75">
+      {% comment %} moderne img (avif) {% endcomment %}
+    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.avif?quality=75">
+      {% comment %} modernde img (webp) {% endcomment %}
+    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{ image.id }}.webp?quality=75">
+      {% comment %} laatste optie {% endcomment %}
     <img
-      src="https://fdnd-agency.directus.app/assets/{{ image.id }}.jpg?fit=cover&quality=75&width={{half_width}}&height={{half_height}}"
+      src="https://fdnd-agency.directus.app/assets/{{ image.id }}.jpg?fit=cover&quality=75"
       alt=""
       width="{{image.width}}"
       height="{{image.height}}"
